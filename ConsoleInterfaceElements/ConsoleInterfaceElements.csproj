@@ -43,11 +43,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BacklogItem.cs" />
+    <Compile Include="Button.cs" />
+    <Compile Include="ExtendableListSettings.cs" />
+    <Compile Include="FormDrafter.cs" />
+    <Compile Include="FormSettings.cs" />
+    <Compile Include="InputHandler.cs" />
+    <Compile Include="InterfaceElementSettings.cs" />
+    <Compile Include="MenuSettings.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
