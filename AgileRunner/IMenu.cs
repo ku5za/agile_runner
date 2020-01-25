@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace AgileRunner
 {
-	public interface IForm
+	public interface IMenu
 	{
-		string GetFormLabel();
-		Dictionary<string, FormTools.ValueSetter> GetFormInputs();
+		string GetMenuLabel();
+		MenuButton[] GetMenuButtons();
 	}
 }

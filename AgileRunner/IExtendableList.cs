@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace AgileRunner
 {
-	public interface IForm
+	public interface IExtendableList
 	{
-		string GetFormLabel();
-		Dictionary<string, FormTools.ValueSetter> GetFormInputs();
+		string GetListLabel();
+		IEditForm GetListElements();
 	}
 }

@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleInterfaceElements
+namespace AgileRunnerAPI
 {
-	abstract class Button
+	class Program
 	{
-		private string label;
-		public Button(string label) => this.label = label;
+		static void Main()
+		{
+		}
 	}
 }

@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace AgileRunner
 {
-	public interface IForm
+	class ScrumStage
 	{
-		string GetFormLabel();
-		Dictionary<string, FormTools.ValueSetter> GetFormInputs();
+		private string stageLebel;
+		IExtendableList backlogElements;
 	}
 }

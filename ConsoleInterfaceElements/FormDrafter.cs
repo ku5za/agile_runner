@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AgileRunnerAPI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,13 +9,11 @@ namespace ConsoleInterfaceElements
 {
 	public class FormDrafter
 	{
-		public delegate bool ValueSetter(object value);
-		public delegate object ValueGetter();
-		public void Draw(Dictionary<string, ValueSetter> inputs)
+		public void Draw(Dictionary<string, FormTools.ValueSetter> inputs)
 		{
 			string[] keys = new string[inputs.Count];
 			inputs.Keys.CopyTo(keys, 0);
-			ValueSetter[] valueSetters = new ValueSetter[inputs.Count];
+			FormTools.ValueSetter[] valueSetters = new FormTools.ValueSetter[inputs.Count];
 			inputs.Values.CopyTo(valueSetters, 0);
 			int longest = FindLongest(keys);
 
@@ -24,14 +23,12 @@ namespace ConsoleInterfaceElements
 			}
 		}
   
-		public void Draw(Dictionary<string, ValueSetter> inputs, Dictionary<string, ValueGetter> inputValues)
+		public void Draw(Dictionary<string, FormTools.ValueSetter> inputs, Dictionary<string, FormTools.ValueGetter> inputValues)
 		{
 			string[] keys = new string[inputs.Count];
 			inputs.Keys.CopyTo(keys, 0);
-			ValueSetter[] valueSetters = new ValueSetter[inputs.Count];
+			FormTools.ValueSetter[] valueSetters = new FormTools.ValueSetter[inputs.Count];
 			inputs.Values.CopyTo(valueSetters, 0);
-			//ValueGetter[] valueGetters = new ValueGetter[inputValues.Count];
-			//inputValues.Values.CopyTo(valueGetters, 0);
 			int longest = FindLongest(keys);
 
 			for (byte i = 0; i < inputs.Count; i++)
@@ -40,7 +37,7 @@ namespace ConsoleInterfaceElements
 			}
 		}
 
-		public void DrawFormInput(string label, ValueSetter valueSetter)
+		public void DrawFormInput(string label, FormTools.ValueSetter valueSetter)
 		{
 			bool currentCursorVisibility = Console.CursorVisible;
 			
@@ -72,7 +69,7 @@ namespace ConsoleInterfaceElements
 			Console.CursorVisible = currentCursorVisibility;
 		}
 
-		private static void DrawFormInput(string label, ValueSetter valueSetter, ValueGetter valueGetter)
+		private static void DrawFormInput(string label, FormTools.ValueSetter valueSetter, FormTools.ValueGetter valueGetter)
 		{
 			bool currentCursorVisibility = Console.CursorVisible;
 
@@ -89,7 +86,14 @@ namespace ConsoleInterfaceElements
 				object value = Console.ReadLine();
 				try
 				{
-					writingSuccess = valueSetter(value);
+					if (value.ToString().Length != 0)
+					{
+						writingSuccess = valueSetter(value);
+					}
+					else
+					{
+						writingSuccess = true;
+					}
 				}
 				catch (Exception e)
 				{

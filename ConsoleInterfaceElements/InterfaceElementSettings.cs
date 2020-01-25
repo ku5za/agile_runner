@@ -12,7 +12,7 @@ namespace ConsoleInterfaceElements
 		public byte LabelPadding { get; set; }
 		public byte LabelMargin { get; set; }
 		public byte ContentPadding { get; set; }
-		public byte ContentMaring { get; set; }
+		public byte ContentMargin { get; set; }
 		public ConsoleColor FgColor{ get; set; }
 		public ConsoleColor BgColor { get; set; }
 

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using AgileRunner;
+using AgileRunnerAPI;
 
-namespace ConsoleInterfaceElements
+namespace AgileRunner
 {
-	class BacklogItem : IForm
+	public class BacklogItem : IEditForm
 	{
 		const string titleLabel = "tytul";
 		const string descriptionLabel = "opis";
@@ -22,9 +22,9 @@ namespace ConsoleInterfaceElements
 		private string acceptationCondition;
 		private bool isDone;
 
-		public Dictionary<string, FormDrafter.ValueSetter> GetFormInputs()
+		public Dictionary<string, FormTools.ValueSetter> GetFormInputs()
 		{
-			Dictionary<string, FormDrafter.ValueSetter> formInputs = new Dictionary<string, FormDrafter.ValueSetter>();
+			Dictionary<string, FormTools.ValueSetter> formInputs = new Dictionary<string, FormTools.ValueSetter>();
 
 			formInputs.Add(titleLabel, TitleSetter);
 			formInputs.Add(descriptionLabel, DescriptionSetter);
@@ -36,9 +36,9 @@ namespace ConsoleInterfaceElements
 			return formInputs;
 		}
 
-		public Dictionary<string, FormDrafter.ValueGetter> GetFormCurrentValues()
+		public Dictionary<string, FormTools.ValueGetter> GetFormCurrentInputValues()
 		{
-			Dictionary<string, FormDrafter.ValueGetter> formGetters = new Dictionary<string, FormDrafter.ValueGetter>();
+			Dictionary<string, FormTools.ValueGetter> formGetters = new Dictionary<string, FormTools.ValueGetter>();
 
 			formGetters.Add(titleLabel, TitleGetter);
 			formGetters.Add(descriptionLabel, DescriptionGetter);
@@ -68,7 +68,7 @@ namespace ConsoleInterfaceElements
 		}
 
 		#region setters
-		private FormDrafter.ValueSetter WrapInAttributeSetter<T>(T attribute)
+		private FormTools.ValueSetter WrapInAttributeSetter<T>(T attribute)
 		{
 			return delegate (object value) { return InputHandler.SetIfCompatibleTypes(ref attribute, value); };
 		}

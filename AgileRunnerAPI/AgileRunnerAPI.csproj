@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A329325E-FECC-41A2-B932-6660C30FFA1B}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>ConsoleInterfaceElements</RootNamespace>
-    <AssemblyName>ConsoleInterfaceElements</AssemblyName>
+    <ProjectGuid>{E4AF84FA-3293-4CC8-B66D-B963E5B08A09}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>AgileRunnerAPI</RootNamespace>
+    <AssemblyName>AgileRunnerAPI</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -43,28 +46,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BacklogElementButton.cs" />
-    <Compile Include="ExtendableListSettings.cs" />
-    <Compile Include="FormDrafter.cs" />
-    <Compile Include="FormSettings.cs" />
-    <Compile Include="InterfaceElementSettings.cs" />
-    <Compile Include="MenuSettings.cs" />
-    <Compile Include="NewBacklogElementButton.cs" />
+    <Compile Include="Button.cs" />
+    <Compile Include="FormTools.cs" />
+    <Compile Include="InputHandler.cs" />
+    <Compile Include="MenuButton.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\AgileRunnerAPI\AgileRunnerAPI.csproj">
-      <Project>{e4af84fa-3293-4cc8-b66d-b963e5b08a09}</Project>
-      <Name>AgileRunnerAPI</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AgileRunner\AgileRunner.csproj">
-      <Project>{40ead4c8-6dd3-4e94-94d1-596c53c53c62}</Project>
-      <Name>AgileRunner</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
