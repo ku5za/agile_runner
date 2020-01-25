@@ -4,7 +4,6 @@ using AgileRunner;
 
 namespace ConsoleInterfaceElements
 {
-	//internal class BacklogItem : IForm
 	class BacklogItem : IForm
 	{
 		const string titleLabel = "tytul";
@@ -23,17 +22,9 @@ namespace ConsoleInterfaceElements
 		private string acceptationCondition;
 		private bool isDone;
 
- 		public Dictionary<string, FormDrafter.ValueSetter> GetFormInputs()
+		public Dictionary<string, FormDrafter.ValueSetter> GetFormInputs()
 		{
 			Dictionary<string, FormDrafter.ValueSetter> formInputs = new Dictionary<string, FormDrafter.ValueSetter>();
-
-			//FormDrafter.ValueSetter titleSetter = this.TitleSetter;
-			//FormDrafter.ValueSetter descriptionSetter = this.DescriptionSetter;
-			//FormDrafter.ValueSetter orderSetter = this.OrderSetter;
-			//FormDrafter.ValueSetter estimateWorkAmontuSetter = this.EstimateWorkAmountSetter;
-			//FormDrafter.ValueSetter valueSetter = this.ValueSetter;
-			//FormDrafter.ValueSetter accceptationConditionSetter = this.AcceptationConditionSetter;
-			//FormDrafter.ValueSetter isDoneSetter = this.IsDoneSetter;
 
 			formInputs.Add(titleLabel, TitleSetter);
 			formInputs.Add(descriptionLabel, DescriptionSetter);
@@ -41,7 +32,6 @@ namespace ConsoleInterfaceElements
 			formInputs.Add(estimateWorkAmountLabel, EstimateWorkAmountSetter);
 			formInputs.Add(valueLabel, ValueSetter);
 			formInputs.Add(acceptationConditionLabel, AcceptationConditionSetter);
-			formInputs.Add(isDoneLabel, IsDoneSetter);
 
 			return formInputs;
 		}
@@ -49,6 +39,13 @@ namespace ConsoleInterfaceElements
 		public Dictionary<string, FormDrafter.ValueGetter> GetFormCurrentValues()
 		{
 			Dictionary<string, FormDrafter.ValueGetter> formGetters = new Dictionary<string, FormDrafter.ValueGetter>();
+
+			formGetters.Add(titleLabel, TitleGetter);
+			formGetters.Add(descriptionLabel, DescriptionGetter);
+			formGetters.Add(orderLabel, OrderGetter);
+			formGetters.Add(estimateWorkAmountLabel, EstimateWorkAmountGetter);
+			formGetters.Add(valueLabel, ValueGetter);
+			formGetters.Add(acceptationConditionLabel, AcceptationConditionGetter);
 
 			return formGetters;
 		}
@@ -71,34 +68,41 @@ namespace ConsoleInterfaceElements
 		}
 
 		#region setters
+		private FormDrafter.ValueSetter WrapInAttributeSetter<T>(T attribute)
+		{
+			return delegate (object value) { return InputHandler.SetIfCompatibleTypes(ref attribute, value); };
+		}
+
 		private bool TitleSetter(object value)
-		{
-			return InputHandler.SetIfCompatibleTypes(ref title, value);
-		}
+			=> InputHandler.SetIfCompatibleTypes(ref title, value);
+
 		private bool DescriptionSetter(object value)
-		{
-			return InputHandler.SetIfCompatibleTypes(ref description, value);
-		}
+			=> InputHandler.SetIfCompatibleTypes(ref description, value);
+		
 		private bool OrderSetter(object value)
-		{
-			return InputHandler.SetIfCompatibleTypes(ref order, value);
-		}
+			=> InputHandler.SetIfCompatibleTypes(ref order, value);
+		
 		private bool EstimateWorkAmountSetter(object value)
-		{
-			return InputHandler.SetIfCompatibleTypes(ref estimateWorkAmount, value);
-		}
+			=> InputHandler.SetIfCompatibleTypes(ref estimateWorkAmount, value);
+		
 		private bool ValueSetter(object value)
-		{
-			return InputHandler.SetIfCompatibleTypes(ref value, value);
-		}
+			=> InputHandler.SetIfCompatibleTypes(ref this.value, value);
+		
 		private bool AcceptationConditionSetter(object value)
-		{
-			return InputHandler.SetIfCompatibleTypes(ref acceptationCondition, value);
-		}
+			=> InputHandler.SetIfCompatibleTypes(ref acceptationCondition, value);
+		
 		private bool IsDoneSetter(object value)
-		{
-			return InputHandler.SetIfCompatibleTypes(ref isDone, value);
-		}
+			=> InputHandler.SetIfCompatibleTypes(ref isDone, value);
+		#endregion
+		#region getters
+		private object TitleGetter() => title;
+		private object DescriptionGetter() => description;
+		private object OrderGetter() => order;
+		private object EstimateWorkAmountGetter() => estimateWorkAmount;
+		private object ValueGetter() => value;
+		private object AcceptationConditionGetter() => acceptationCondition;
+		private object isDoneGetter() => isDone;
+		
 		#endregion
 	}
 }

@@ -6,17 +6,9 @@ using System.Threading.Tasks;
 
 namespace ConsoleInterfaceElements
 {
-	class Button
+	abstract class Button
 	{
-		public delegate void Action();
 		private string label;
-		private Action action;
-		public Button(string label, Action action)
-		{
-			this.label = label;
-			this.action = action;
-		}
-
-		public string Label => label;
+		public Button(string label) => this.label = label;
 	}
 }

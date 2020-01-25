@@ -13,9 +13,12 @@ namespace AgileRunner
 		{
 			BacklogItem backlogItem = new BacklogItem();
 			Dictionary<string, FormDrafter.ValueSetter> formInputs = backlogItem.GetFormInputs();
+			Dictionary<string, FormDrafter.ValueGetter> formCurrentValues = backlogItem.GetFormCurrentValues();
 			FormDrafter formDrafter = new FormDrafter();
 
-			formDrafter.Draw(formInputs);
+			formDrafter.Draw(formInputs, formCurrentValues);
+			Console.WriteLine();
+			formDrafter.Draw(formInputs, formCurrentValues);
 
 			Console.ReadKey();
 		}

@@ -30,13 +30,13 @@ namespace ConsoleInterfaceElements
 			inputs.Keys.CopyTo(keys, 0);
 			ValueSetter[] valueSetters = new ValueSetter[inputs.Count];
 			inputs.Values.CopyTo(valueSetters, 0);
-			ValueGetter[] valueGetters = new ValueGetter[inputValues.Count];
-			inputValues.Values.CopyTo(valueGetters, 0);
+			//ValueGetter[] valueGetters = new ValueGetter[inputValues.Count];
+			//inputValues.Values.CopyTo(valueGetters, 0);
 			int longest = FindLongest(keys);
 
 			for (byte i = 0; i < inputs.Count; i++)
 			{
-				DrawFormInput(MatchToLongest(keys[i], longest), valueSetters[i], valueGetters[i]);
+				DrawFormInput(MatchToLongest(keys[i], longest), valueSetters[i], inputValues[keys[i]]);
 			}
 		}
 
