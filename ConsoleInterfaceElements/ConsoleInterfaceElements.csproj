@@ -44,12 +44,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BacklogElementButton.cs" />
+    <Compile Include="EditElementFormDrafter.cs" />
     <Compile Include="ExtendableListSettings.cs" />
-    <Compile Include="FormDrafter.cs" />
+    <Compile Include="NewElementFormDrafter.cs" />
     <Compile Include="FormSettings.cs" />
     <Compile Include="InterfaceElementSettings.cs" />
     <Compile Include="MenuSettings.cs" />
-    <Compile Include="NewBacklogElementButton.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

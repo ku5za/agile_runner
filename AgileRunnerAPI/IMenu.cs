@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleInterfaceElements
+namespace AgileRunnerAPI
 {
-	class NewBacklogElementButton
+	public interface IMenu
 	{
+		string GetMenuLabel();
+		MenuButton[] GetMenuButtons();
 	}
-
-	
 }

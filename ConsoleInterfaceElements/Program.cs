@@ -14,13 +14,12 @@ namespace ConsoleInterfaceElements
 		static public void Main()
 		{
 			BacklogItem backlogItem = new BacklogItem();
-			Dictionary<string, FormTools.ValueSetter> formInputs = backlogItem.GetFormInputs();
-			Dictionary<string, FormTools.ValueGetter> formCurrentValues = backlogItem.GetFormCurrentInputValues();
-			FormDrafter formDrafter = new FormDrafter();
-
-			formDrafter.Draw(formInputs, formCurrentValues);
+			NewElementFormDrafter formDrafter = new NewElementFormDrafter("Nowy element backlogu", backlogItem);
+			EditElementFormDrafter editFormDrafter = new EditElementFormDrafter("Edytuj element", backlogItem);
+			
+			formDrafter.Draw();
 			Console.WriteLine();
-			formDrafter.Draw(formInputs, formCurrentValues);
+			editFormDrafter.Draw();
 
 			Console.ReadKey();
 		}

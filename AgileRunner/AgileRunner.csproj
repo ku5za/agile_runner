@@ -47,10 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BacklogItem.cs" />
-    <Compile Include="IEditForm.cs" />
-    <Compile Include="IExtendableList.cs" />
-    <Compile Include="IForm.cs" />
-    <Compile Include="IMenu.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScrumStage.cs" />
