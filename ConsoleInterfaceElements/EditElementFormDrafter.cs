@@ -14,10 +14,13 @@ namespace ConsoleInterfaceElements
 
 		public override void Action()
 		{
+			Console.Clear();
+			Console.SetCursorPosition(0, 0);
 			Draw();
 		}
 		public void Draw()
 		{
+			Console.WriteLine(target.GetFormLabel());
 			Dictionary<string, FormTools.ValueSetter> inputs = target.GetFormInputs();
 			string[] keys = new string[inputs.Count];
 			Dictionary<string, FormTools.ValueGetter> inputValues = target.GetFormCurrentInputValues();

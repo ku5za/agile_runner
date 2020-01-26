@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace AgileRunner
 {
-	class Program
+	class SprintStage
 	{
-		static void Main(string[] args)
-		{
-		}
+		private string stageLabel;
+		IExtendableList backlogElements;
+		public SprintStage(string stageLabel) => this.stageLabel = stageLabel;
 	}
 }

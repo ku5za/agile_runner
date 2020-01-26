@@ -45,10 +45,9 @@
   <ItemGroup>
     <Compile Include="EditElementFormDrafter.cs" />
     <Compile Include="ExtendableListSettings.cs" />
+    <Compile Include="Menu.cs" />
     <Compile Include="NewElementFormDrafter.cs" />
-    <Compile Include="FormSettings.cs" />
     <Compile Include="InterfaceElementSettings.cs" />
-    <Compile Include="MenuSettings.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
