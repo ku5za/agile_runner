@@ -48,7 +48,6 @@
   <ItemGroup>
     <Compile Include="Button.cs" />
     <Compile Include="EditElementButton.cs" />
-    <Compile Include="MenuButton.cs" />
     <Compile Include="NewElementButton.cs" />
     <Compile Include="FormTools.cs" />
     <Compile Include="IEditForm.cs" />

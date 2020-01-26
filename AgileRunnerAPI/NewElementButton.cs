@@ -11,6 +11,5 @@ namespace AgileRunnerAPI
 	{
 		protected IForm target;
 		public NewElementButton(string label, IForm target) : base(label) => this.target = target;
-		public abstract void Action();
 	}
 }

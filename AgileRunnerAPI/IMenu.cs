@@ -9,6 +9,6 @@ namespace AgileRunnerAPI
 	public interface IMenu
 	{
 		string GetMenuLabel();
-		MenuButton[] GetMenuButtons();
+		Button[] GetMenuButtons();
 	}
 }

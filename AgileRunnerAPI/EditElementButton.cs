@@ -11,7 +11,5 @@ namespace AgileRunnerAPI
 		protected IEditForm target;
 		public EditElementButton(string label, IEditForm target) : base(label)
 			=> this.target = target;
-
-		public abstract void Action();
 	}
 }

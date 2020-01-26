@@ -10,5 +10,6 @@ namespace AgileRunnerAPI
 	{
 		private string label;
 		public Button(string label) => this.label = label;
+		public abstract void Action();
 	}
 }
