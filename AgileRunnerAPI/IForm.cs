@@ -10,5 +10,7 @@ namespace AgileRunnerAPI
 	{
 		string GetFormLabel();
 		Dictionary<string, FormTools.ValueSetter> GetFormInputs();
+		Dictionary<string, FormTools.ValueGetter> GetFormCurrentInputValues();
+
 	}
 }

@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace AgileRunnerAPI
 {
-	public abstract class NewElementButton : Button
+	public abstract class NewElementDrafter : Button
 	{
 		protected IForm target;
-		public NewElementButton(string label, IForm target) : base(label) => this.target = target;
+		public NewElementDrafter(string label, IForm target) : base(label) => this.target = target;
 	}
 }

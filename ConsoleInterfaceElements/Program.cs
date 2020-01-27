@@ -13,19 +13,12 @@ namespace ConsoleInterfaceElements
 	{
 		static public void Main()
 		{
-			BacklogItem backlogItem = new BacklogItem();
-			Button drawNewBacklogElementButton = new NewElementFormDrafter("Nowy element backlogu", backlogItem);
-			Button editBacklogElementButton = new EditElementFormDrafter("Edytuj element", backlogItem);
-
-			Menu backlogElementMenu = new Menu("Element backlogu", drawNewBacklogElementButton, editBacklogElementButton);
-
-			backlogElementMenu.Draw();
-
-			//drawNewBacklogElementButton.Action();
-			//Console.WriteLine();
-			//editBacklogElementButton.Action();
-
-			//Console.ReadKey();
+			Product product = new Product("AgileRunner");
+			Button productButton = new NewElementFormDrafter("Nowy produkt", product);
+			productButton.Action();
+			//ProductBacklog backlog = new ProductBacklog();
+			//Button button = new ExtendableListDrafter("Backlog", backlog);
+			//button.Action();
 		}
 	}
 }

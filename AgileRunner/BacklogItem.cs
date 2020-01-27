@@ -4,7 +4,7 @@ using AgileRunnerAPI;
 
 namespace AgileRunner
 {
-	public class BacklogItem : IEditForm
+	public class BacklogItem : IForm
 	{
 		const string titleLabel = "tytul";
 		const string descriptionLabel = "opis";
@@ -21,6 +21,23 @@ namespace AgileRunner
 		private byte value;
 		private string acceptationCondition;
 		private bool isDone;
+
+
+		public BacklogItem()
+		{
+			this.title = "Nowy element backlogu";
+			this.description = "Wprowadz opis";
+			this.order = 1;
+			this.estimateWorkAmount = 2;
+			this.value = 3;
+			this.acceptationCondition = "Warunek akceptacji";
+			this.isDone = false;
+		}
+
+		public BacklogItem(byte order) : base()
+		{
+			this.order = order;
+		}
 
 		public Dictionary<string, FormTools.ValueSetter> GetFormInputs()
 		{
@@ -48,18 +65,6 @@ namespace AgileRunner
 			formGetters.Add(acceptationConditionLabel, AcceptationConditionGetter);
 
 			return formGetters;
-		}
-
-
-		public BacklogItem()
-		{
-			this.title = "Nowy element backlogu";
-			this.description = "Wprowadz opis";
-			this.order = 1;
-			this.estimateWorkAmount = 2;
-			this.value = 3;
-			this.acceptationCondition = "Warunek akceptacji";
-			this.isDone = false;
 		}
 
 		public string GetFormLabel()

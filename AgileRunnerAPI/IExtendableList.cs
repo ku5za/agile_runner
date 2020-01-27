@@ -9,6 +9,8 @@ namespace AgileRunnerAPI
 	public interface IExtendableList
 	{
 		string GetListLabel();
-		IEditForm GetListElements();
+		List<IForm> GetListElements();
+		IForm GetNewItemForm();
+		void RemoveItem(IForm item);
 	}
 }

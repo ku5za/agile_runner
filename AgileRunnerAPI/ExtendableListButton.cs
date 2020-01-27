@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace AgileRunnerAPI
 {
-	public abstract class EditElementButton : Button
+	public abstract class ExtendableListButton : Button
 	{
-		protected IForm target;
-		public EditElementButton(string label, IForm target) : base(label)
+		protected IExtendableList target;
+		public ExtendableListButton(string label, IExtendableList target) : base(label)
 			=> this.target = target;
 	}
 }

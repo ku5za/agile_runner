@@ -9,10 +9,11 @@ namespace ConsoleInterfaceElements
 {
 	class Menu
 	{
-		private InterfaceElementSettings settings;
-		private string menuLabel;
-		private Dictionary<string, Button> buttons;
-		private string selected;
+		protected InterfaceElementSettings settings;
+		protected string menuLabel;
+		protected Dictionary<string, Button> buttons;
+		protected string selected;
+
 		public Menu(string menuLabel)
 		{
 			this.menuLabel = menuLabel;
@@ -21,6 +22,7 @@ namespace ConsoleInterfaceElements
 			settings.FgColor = ConsoleColor.DarkGreen;
 			settings.LabelFgColor = ConsoleColor.Black;
 		}
+		
 		public Menu(string menuLabel, params Button[] buttons) : this(menuLabel)
 		{
 			for (int i = 0; i < buttons.Length; i++)
@@ -29,18 +31,33 @@ namespace ConsoleInterfaceElements
 			}
 		}
 
-		public void AddButton(Button newButton)
+		public virtual bool AddButton(Button newButton)
 		{
-			buttons.Add(newButton.Label, newButton);
-			selected = buttons.Keys.First();
+			if (!buttons.Values.Contains(newButton))
+			{
+				buttons.Add(newButton.Label, newButton);
+				selected = buttons.Keys.First();
+				return true;
+			}
+			return false;
+		}
+		public void RemoveButton(byte index)
+		{
+			if(buttons.Count > index)
+			{
+				var button = buttons.Keys.ToArray()[index];
+				buttons.Remove(button);
+			}
 		}
 
-		public void Draw(char markChar = '>')
+		public virtual void Draw(char markChar = '>')
 		{
 			Console.SetCursorPosition(0, 0);
 			Console.Clear();
+			DrawingTools.WriteLineInColor($"{menuLabel}", settings.LabelFgColor, settings.LabelBgColor);
+		
 			Console.CursorVisible = false;
-			WriteLineInColor($"{menuLabel}\n", settings.LabelFgColor, settings.LabelBgColor);
+			Console.WriteLine();
 
 			foreach(var button in buttons)
 			{
@@ -48,7 +65,7 @@ namespace ConsoleInterfaceElements
 				if (button.Key == selected)
 				{
 					Console.Write($"{markChar} ");
-					WriteLineInColor(button.Key, settings.FgColor);
+					DrawingTools.WriteLineInColor(button.Key, settings.FgColor);
 				}
 				else
 				{
@@ -60,21 +77,6 @@ namespace ConsoleInterfaceElements
 			ReactToKey();
 		}
 
-		private void WriteLineInColor(object line, ConsoleColor FgColor)
-		{
-			Console.ForegroundColor = FgColor;
-			Console.WriteLine(line);
-			Console.ResetColor();
-		}
-
-		private void WriteLineInColor(object line, ConsoleColor FgColor, ConsoleColor BgColor)
-		{
-			Console.BackgroundColor = BgColor;
-			Console.ForegroundColor = FgColor;
-			Console.WriteLine(line);
-			Console.ResetColor();
-		}
-
 		protected virtual void ReactToKey()
 		{
 			var clicked = Console.ReadKey(true);
@@ -82,7 +84,6 @@ namespace ConsoleInterfaceElements
 			{
 				case ConsoleKey.Enter:
 					buttons[selected].Action();
-					Draw();
 					break;
 				case ConsoleKey.DownArrow:
 					ReactToDownArrow();
@@ -98,7 +99,7 @@ namespace ConsoleInterfaceElements
 			}
 		}
 
-		protected void ReactToUpArrow()
+		protected virtual void ReactToUpArrow()
 		{
 			string[] buttonsLabels = buttons.Keys.ToArray();
 			for(byte i = 0; i < buttonsLabels.Length; i++)
@@ -119,7 +120,7 @@ namespace ConsoleInterfaceElements
 			Draw();
 		}
 
-		protected void ReactToDownArrow()
+		protected virtual void ReactToDownArrow()
 		{
 			string[] buttonsLabels = buttons.Keys.ToArray();
 			for (byte i = 0; i < buttonsLabels.Length; i++)
@@ -139,5 +140,8 @@ namespace ConsoleInterfaceElements
 			}
 			Draw();
 		}
+
+		public string ReturnSelectedLabel() => selected;
+		public Button ReturnSelectedButton() => buttons[selected];
 	}
  }

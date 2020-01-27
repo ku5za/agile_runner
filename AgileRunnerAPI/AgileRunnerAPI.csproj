@@ -48,9 +48,9 @@
   <ItemGroup>
     <Compile Include="Button.cs" />
     <Compile Include="EditElementButton.cs" />
+    <Compile Include="ExtendableListButton.cs" />
     <Compile Include="NewElementButton.cs" />
     <Compile Include="FormTools.cs" />
-    <Compile Include="IEditForm.cs" />
     <Compile Include="IExtendableList.cs" />
     <Compile Include="IForm.cs" />
     <Compile Include="InputHandler.cs" />

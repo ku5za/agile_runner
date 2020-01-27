@@ -43,8 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddNewExtendableListItemButton.cs" />
+    <Compile Include="DrawingTools.cs" />
     <Compile Include="EditElementFormDrafter.cs" />
+    <Compile Include="EditMenuDrafter.cs" />
+    <Compile Include="ExtendableListDrafter.cs" />
     <Compile Include="ExtendableListSettings.cs" />
+    <Compile Include="InteractiveList.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="NewElementFormDrafter.cs" />
     <Compile Include="InterfaceElementSettings.cs" />
