@@ -25,13 +25,13 @@ namespace AgileRunner
 
 		public BacklogItem()
 		{
-			this.title = "Nowy element backlogu";
-			this.description = "Wprowadz opis";
-			this.order = 1;
-			this.estimateWorkAmount = 2;
-			this.value = 3;
-			this.acceptationCondition = "Warunek akceptacji";
-			this.isDone = false;
+			title = "Nowy element backlogu";
+			description = "Wprowadz opis";
+			order = 1;
+			estimateWorkAmount = 2;
+			value = 3;
+			acceptationCondition = "Warunek akceptacji";
+			isDone = false;
 		}
 
 		public BacklogItem(byte order) : base()

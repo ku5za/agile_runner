@@ -13,12 +13,16 @@ namespace ConsoleInterfaceElements
 	{
 		static public void Main()
 		{
+			//Menu mainMenu = new Menu("Menu glowne");
+			//mainMenu.AddButton(new );
+
 			Product product = new Product("AgileRunner");
 			Button productButton = new NewElementFormDrafter("Nowy produkt", product);
 			productButton.Action();
-			//ProductBacklog backlog = new ProductBacklog();
-			//Button button = new ExtendableListDrafter("Backlog", backlog);
-			//button.Action();
+
+			ProductBacklog backlog = new ProductBacklog();
+			Button button = new ExtendableListDrafter("Backlog", backlog);
+			button.Action();
 		}
 	}
 }

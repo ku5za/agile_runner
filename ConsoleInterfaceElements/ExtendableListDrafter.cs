@@ -21,12 +21,11 @@ namespace ConsoleInterfaceElements
 			UpdateElementsList();
 		}
 
-		internal virtual EditElementButton CreateNewMenuButton(IForm button)
+		public override void Action()
 		{
-			Dictionary<string, FormTools.ValueGetter> buttonsInfo = button.GetFormCurrentInputValues();
-			FormTools.ValueGetter buttonLabelGetter = buttonsInfo["tytul"];
-			string buttonLabel = (string)buttonLabelGetter();
-			return new EditMenuDrafter(buttonLabel, button);
+			Console.Clear();
+			Console.SetCursorPosition(0, 0);
+			Draw();
 		}
 
 		protected void AppendNewElementButton()
@@ -49,11 +48,12 @@ namespace ConsoleInterfaceElements
 			AppendNewElementButton();
 		}
 
-		public override void Action()
+		internal virtual EditElementButton CreateNewMenuButton(IForm button)
 		{
-			Console.Clear();
-			Console.SetCursorPosition(0, 0);
-			Draw();
+			Dictionary<string, FormTools.ValueGetter> buttonsInfo = button.GetFormCurrentInputValues();
+			FormTools.ValueGetter buttonLabelGetter = buttonsInfo["tytul"];
+			string buttonLabel = (string)buttonLabelGetter();
+			return new EditMenuDrafter(buttonLabel, button);
 		}
 
 		public void Draw()
@@ -61,13 +61,11 @@ namespace ConsoleInterfaceElements
 			UpdateElementsList();
 			interactiveList.Draw();
 
-			Console.Clear();
-
-			ConsoleKeyInfo pressedKey = Console.ReadKey();
+			ConsoleKeyInfo pressedKey = Console.ReadKey(true);
 			while(pressedKey.Key != ConsoleKey.Escape)
 			{
 				Draw();
-				pressedKey = Console.ReadKey();
+				pressedKey = Console.ReadKey(true);
 			}
 		}
 	}

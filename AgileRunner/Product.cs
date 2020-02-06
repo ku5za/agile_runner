@@ -14,11 +14,14 @@ namespace AgileRunner
 		private string standardSprintDuraionLabel = "standardowy czas trwania sprintu";
 		private string name;
 		private ProductBacklog backlog;
+		private List<ScrumSprint> scrumSprints;
 		private byte standardSprintDuration;
 		public Product(string name)
 		{
-			this.name = name;
-			backlog = new ProductBacklog();
+			//this.name = name;
+			//backlog = new ProductBacklog();
+			//ScrumSprint sprint = new ScrumSprint(backlog);
+			//scrumSprints.Add(sprint);
 		}
 
 		public Dictionary<string, FormTools.ValueSetter> GetFormInputs()
