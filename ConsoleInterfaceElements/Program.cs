@@ -20,7 +20,7 @@ namespace ConsoleInterfaceElements
 			Button productButton = new NewElementFormDrafter("Nowy produkt", product);
 			productButton.Action();
 
-			ProductBacklog backlog = new ProductBacklog();
+			Backlog backlog = new Backlog();
 			Button button = new ExtendableListDrafter("Backlog", backlog);
 			button.Action();
 		}

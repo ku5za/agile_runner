@@ -10,9 +10,9 @@ namespace AgileRunner
 	class SprintStage : IExtendableList
 	{
 		private string stageLabel;
-		ProductBacklog backlog;
+		Backlog backlog;
 		private List<IForm> issues;
-		public SprintStage(string stageLabel, ProductBacklog backlog)
+		public SprintStage(string stageLabel, Backlog backlog)
 		{
 			this.stageLabel = stageLabel;
 			this.backlog = backlog;

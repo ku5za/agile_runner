@@ -13,7 +13,7 @@ namespace AgileRunner
 		private string nameLabel = "nazwa";
 		private string standardSprintDuraionLabel = "standardowy czas trwania sprintu";
 		private string name;
-		private ProductBacklog backlog;
+		private Backlog backlog;
 		private List<ScrumSprint> scrumSprints;
 		private byte standardSprintDuration;
 		public Product(string name)

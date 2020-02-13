@@ -18,7 +18,7 @@ namespace AgileRunner
 		private DateTime sprintEndDate;
 		private List<SprintStage> sprintStages;
 		
-		public ScrumSprint(ProductBacklog backlog)
+		public ScrumSprint(Backlog backlog)
 		{
 			sprintName = getSprintName();
 			sprintStages = new List<SprintStage>();
