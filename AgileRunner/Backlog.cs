@@ -13,8 +13,8 @@ namespace AgileRunner
 		private List<IForm> backlogItems;
 		public Backlog()
 		{
-			this.label = "Backlog";
-			this.backlogItems = new List<IForm>();
+			label = "Backlog";
+			backlogItems = new List<IForm>();
 		}
 
 		public List<IForm> GetListElements() => backlogItems;
@@ -29,16 +29,5 @@ namespace AgileRunner
 		}
 
 		public void RemoveItem(IForm item) => backlogItems.Remove(item);
-		//public void RemoveItem(string label)
-		//{
-		//	foreach(var item in backlogItems)
-		//	{
-		//		var itemInputs = item.GetFormInputs();
-		//		if(itemInputs.ContainsKey(label))
-		//		{
-		//			backlogItems.Remove(item);
-		//		}
-		//	}
-		//}
 	}
 }
