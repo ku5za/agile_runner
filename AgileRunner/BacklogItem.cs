@@ -6,14 +6,7 @@ namespace AgileRunner
 {
 	public class BacklogItem : IForm
 	{
-		const string titleLabel = "tytul";
-		const string descriptionLabel = "opis";
-		const string orderLabel = "pozycja";
-		const string estimateWorkAmountLabel = "przewidywana ilosc pracy";
-		const string valueLabel = "wartosc";
-		const string acceptationConditionLabel = "warunek akceptacji";
-		const string isDoneLabel = "zakonczone";
-
+		#region fields
 		private string title;
 		private string description;
 		private byte order;
@@ -21,7 +14,17 @@ namespace AgileRunner
 		private byte value;
 		private string acceptationCondition;
 		private bool isDone;
-
+		#endregion
+	
+		#region inputLabels
+		const string titleLabel = "tytul";
+		const string descriptionLabel = "opis";
+		const string orderLabel = "pozycja";
+		const string estimateWorkAmountLabel = "przewidywana ilosc pracy";
+		const string valueLabel = "wartosc";
+		const string acceptationConditionLabel = "warunek akceptacji";
+		const string isDoneLabel = "zakonczone";
+		#endregion
 
 		public BacklogItem()
 		{
@@ -41,28 +44,30 @@ namespace AgileRunner
 
 		public Dictionary<string, FormTools.ValueSetter> GetFormInputs()
 		{
-			Dictionary<string, FormTools.ValueSetter> formInputs = new Dictionary<string, FormTools.ValueSetter>();
-
-			formInputs.Add(titleLabel, TitleSetter);
-			formInputs.Add(descriptionLabel, DescriptionSetter);
-			formInputs.Add(orderLabel, OrderSetter);
-			formInputs.Add(estimateWorkAmountLabel, EstimateWorkAmountSetter);
-			formInputs.Add(valueLabel, ValueSetter);
-			formInputs.Add(acceptationConditionLabel, AcceptationConditionSetter);
+			Dictionary<string, FormTools.ValueSetter> formInputs = new Dictionary<string, FormTools.ValueSetter>
+			{
+				{ titleLabel, TitleSetter },
+				{ descriptionLabel, DescriptionSetter },
+				{ orderLabel, OrderSetter },
+				{ estimateWorkAmountLabel, EstimateWorkAmountSetter },
+				{ valueLabel, ValueSetter },
+				{ acceptationConditionLabel, AcceptationConditionSetter }
+			};
 
 			return formInputs;
 		}
 
 		public Dictionary<string, FormTools.ValueGetter> GetFormCurrentInputValues()
 		{
-			Dictionary<string, FormTools.ValueGetter> formGetters = new Dictionary<string, FormTools.ValueGetter>();
-
-			formGetters.Add(titleLabel, TitleGetter);
-			formGetters.Add(descriptionLabel, DescriptionGetter);
-			formGetters.Add(orderLabel, OrderGetter);
-			formGetters.Add(estimateWorkAmountLabel, EstimateWorkAmountGetter);
-			formGetters.Add(valueLabel, ValueGetter);
-			formGetters.Add(acceptationConditionLabel, AcceptationConditionGetter);
+			Dictionary<string, FormTools.ValueGetter> formGetters = new Dictionary<string, FormTools.ValueGetter>
+			{
+				{ titleLabel, TitleGetter },
+				{ descriptionLabel, DescriptionGetter },
+				{ orderLabel, OrderGetter },
+				{ estimateWorkAmountLabel, EstimateWorkAmountGetter },
+				{ valueLabel, ValueGetter },
+				{ acceptationConditionLabel, AcceptationConditionGetter }
+			};
 
 			return formGetters;
 		}
@@ -71,6 +76,11 @@ namespace AgileRunner
 		{
 			return "Nowy element backlogu";
 		}
+
+		#region internalProperties
+		internal string TitleLabel => titleLabel;
+		internal string DescriptionLabel => descriptionLabel;
+		#endregion
 
 		#region setters
 		private FormTools.ValueSetter WrapInAttributeSetter<T>(T attribute)
@@ -106,7 +116,7 @@ namespace AgileRunner
 		private object EstimateWorkAmountGetter() => estimateWorkAmount;
 		private object ValueGetter() => value;
 		private object AcceptationConditionGetter() => acceptationCondition;
-		private object isDoneGetter() => isDone;
+		private object IsDoneGetter() => isDone;
 		
 		#endregion
 	}
