@@ -10,18 +10,26 @@ namespace AgileRunner
 	public class Product : IForm
 	{
 		private string formLabel = "Produkt";
-		private string nameLabel = "nazwa";
-		private string standardSprintDuraionLabel = "standardowy czas trwania sprintu";
+
 		private string name;
 		private Backlog backlog;
 		private List<ScrumSprint> scrumSprints;
+		private List<PartialIncrement> productIncrement;
+		
 		private byte standardSprintDuration;
+		#region inputLabels
+		private string nameLabel = "nazwa";
+		private string standardSprintDuraionLabel = "standardowy czas trwania sprintu";
+		#endregion
+
 		public Product(string name)
 		{
-			//this.name = name;
-			//backlog = new ProductBacklog();
-			//ScrumSprint sprint = new ScrumSprint(backlog);
-			//scrumSprints.Add(sprint);
+			this.name = name;
+			backlog = new Backlog();
+			scrumSprints = new List<ScrumSprint>();
+			ScrumSprint sprint = new ScrumSprint(backlog);
+			scrumSprints.Add(sprint);
+			productIncrement = new List<PartialIncrement>();
 		}
 
 		public Dictionary<string, FormTools.ValueSetter> GetFormInputs()

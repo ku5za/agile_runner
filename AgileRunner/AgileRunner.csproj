@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BacklogItem.cs" />
+    <Compile Include="PartialIncrement.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="Backlog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

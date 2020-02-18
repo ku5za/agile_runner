@@ -7,20 +7,20 @@ using System.Threading.Tasks;
 
 namespace AgileRunner
 {
-	class ScrumSprint : IForm
+	public class ScrumSprint : IForm
 	{
 		private string definitionOfDoneLabel = "Definicja ukonczenia";
 
 		private static int sprintNumber = 0;
 		private string sprintName;
 		private string definitionOfDone;
-		private DateTime sprintStartDate;
-		private DateTime sprintEndDate;
+		//private DateTime sprintStartDate;
+		//private DateTime sprintEndDate;
 		private List<SprintStage> sprintStages;
 		
 		public ScrumSprint(Backlog backlog)
 		{
-			sprintName = getSprintName();
+			sprintName = GetNewSprintName();
 			sprintStages = new List<SprintStage>();
 
 			sprintStages.Add(new SprintStage("Zaplanowane", backlog));
@@ -28,12 +28,14 @@ namespace AgileRunner
 			sprintStages.Add(new SprintStage("Zakonczone", backlog));
 		}
 
-		private static string getSprintName()
+		private static string GetNewSprintName()
 		{
 			sprintNumber++;
 			string newSprintName = $"Sprint {sprintNumber}";
 			return newSprintName;
 		}
+
+		public string GetSprintName() => sprintName;
 
 		public Dictionary<string, FormTools.ValueSetter> GetFormInputs()
 		{
