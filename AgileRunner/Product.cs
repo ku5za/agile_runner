@@ -11,12 +11,14 @@ namespace AgileRunner
 	{
 		private string formLabel = "Produkt";
 
+		#region fields
 		private string name;
 		private Backlog backlog;
 		private List<ScrumSprint> scrumSprints;
 		private List<PartialIncrement> productIncrement;
-		
 		private byte standardSprintDuration;
+		#endregion
+
 		#region inputLabels
 		private string nameLabel = "nazwa";
 		private string standardSprintDuraionLabel = "standardowy czas trwania sprintu";
@@ -32,6 +34,12 @@ namespace AgileRunner
 			productIncrement = new List<PartialIncrement>();
 		}
 
+		public Product(string name, byte standardSprintDuration)
+			: this(name)
+		{
+			this.standardSprintDuration = standardSprintDuration;
+		}
+
 		public Dictionary<string, FormTools.ValueSetter> GetFormInputs()
 		{
 			Dictionary<string, FormTools.ValueSetter> inputs = new Dictionary<string, FormTools.ValueSetter>();
@@ -41,6 +49,7 @@ namespace AgileRunner
 
 			return inputs;
 		}
+		
 		public Dictionary<string, FormTools.ValueGetter> GetFormCurrentInputValues()
 		{
 			Dictionary<string, FormTools.ValueGetter> currentValues = new Dictionary<string, FormTools.ValueGetter>();
